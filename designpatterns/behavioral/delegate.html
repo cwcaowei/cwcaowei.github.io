@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>责任链 · 随笔</title>
+        <title>委派 · 随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -89,10 +89,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="command.html" />
+    <link rel="next" href="templatemethod.html" />
     
     
-    <link rel="prev" href="observer.html" />
+    <link rel="prev" href="strategy.html" />
     
 
     </head>
@@ -343,7 +343,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="delegate.html">
+        <li class="chapter active" data-level="1.2.3.2" data-path="delegate.html">
             
                 <a href="delegate.html">
             
@@ -382,7 +382,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.5" data-path="responsibilitychain.html">
+        <li class="chapter " data-level="1.2.3.5" data-path="responsibilitychain.html">
             
                 <a href="responsibilitychain.html">
             
@@ -603,7 +603,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >责任链</a>
+        <a href="../.." >委派</a>
     </h1>
 </div>
 
@@ -618,9 +618,67 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x8D23;&#x4EFB;&#x94FE;"><b></b>&#x8D23;&#x4EFB;&#x94FE;</a></li></ul></div><a href="#&#x8D23;&#x4EFB;&#x94FE;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x8D23;&#x4EFB;&#x94FE;"><a name="&#x8D23;&#x4EFB;&#x94FE;" class="anchor-navigation-ex-anchor" href="#&#x8D23;&#x4EFB;&#x94FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8D23;&#x4EFB;&#x94FE;</h1>
+                                <h4 id="&#x6982;&#x5FF5;"><a name="&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6982;&#x5FF5;</h4>
+<p>&#x8D1F;&#x8D23;&#x4EFB;&#x52A1;&#x7684;&#x8C03;&#x7528;&#x6216;&#x5206;&#x914D;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x4E0D;&#x5C5E;&#x4E8E;23&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x7ECF;&#x5178;&#x7684;&#x4F7F;&#x7528;&#x6709;&#x53CC;&#x4EB2;&#x59D4;&#x6D3E;&#x3001;Spring&#x7684;DispatcherServlet</p>
+<h4 id="&#x7EC4;&#x6210;"><a name="&#x7EC4;&#x6210;" class="anchor-navigation-ex-anchor" href="#&#x7EC4;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC4;&#x6210;</h4>
+<ul>
+<li><p>&#x62BD;&#x8C61;&#x4EFB;&#x52A1;&#x89D2;&#x8272;&#xFF08;Task&#xFF09;&#xFF1A;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IEmployee</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>;
+
+}
+</code></pre>
+</li>
+<li><p>&#x5177;&#x4F53;&#x4EFB;&#x52A1;&#x89D2;&#x8272;&#xFF08;Concrete&#xFF09;&#xFF1A;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x4EFB;&#x52A1;&#x5E76;&#x6267;&#x884C;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Programmer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IEmployee</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String task)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x6211;&#x64C5;&#x957F;&#x7F16;&#x7A0B;&#xFF0C;&#x6211;&#x5F00;&#x59CB;&#x505A;&quot;</span> + task);
+    }
+
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProjectManager</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IEmployee</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String task)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x6211;&#x64C5;&#x957F;&#x4EA7;&#x54C1;&#xFF0C;&#x6211;&#x5F00;&#x59CB;&#x505A;&quot;</span> + task);
+    }
+
+}
+</code></pre>
+</li>
+<li><p>&#x59D4;&#x6D3E;&#x8005;&#x89D2;&#x8272;&#xFF08;Delegate&#xFF09;&#xFF1A;&#x5B9E;&#x73B0;&#x62BD;&#x8C61;&#x4EFB;&#x52A1;&#x89D2;&#x8272;&#x5B9A;&#x4E49;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x6301;&#x6709;&#x5177;&#x4F53;&#x89D2;&#x8272;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5728;&#x5176;&#x4E2D;&#x51B3;&#x5B9A;&#x8C03;&#x7528;&#x54EA;&#x4E2A;&#x5177;&#x4F53;&#x4EFB;&#x52A1;&#x89D2;&#x8272;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Leader</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IEmployee</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;String, IEmployee&gt; subordinates = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+
+    <span class="hljs-keyword">static</span> {
+        subordinates.put(<span class="hljs-string">&quot;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&quot;</span>, <span class="hljs-keyword">new</span> Programmer());
+        subordinates.put(<span class="hljs-string">&quot;&#x539F;&#x578B;&#x8BBE;&#x8BA1;&quot;</span>, <span class="hljs-keyword">new</span> ProjectManager());
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String task)</span> </span>{
+        IEmployee subordinate = subordinates.get(task);
+        <span class="hljs-keyword">if</span> (subordinate != <span class="hljs-keyword">null</span>) {
+            subordinate.doSomething(task);
+        }
+
+    }
+
+}
+</code></pre>
+<p>&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x8005;&#x53EA;&#x6301;&#x6709;&#x59D4;&#x6D3E;&#x8005;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x7ED9;&#x59D4;&#x6D3E;&#x8005;&#x5206;&#x914D;&#x4EFB;&#x52A1;&#xFF0C;&#x59D4;&#x6D3E;&#x8005;&#x518D;&#x5C06;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x4E0B;&#x53BB;</p>
+<pre><code class="lang-java">String task = <span class="hljs-string">&quot;&#x539F;&#x578B;&#x8BBE;&#x8BA1;&quot;</span>;
+<span class="hljs-keyword">new</span> Leader().doSomething(task);
+</code></pre>
+</li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; bukeyan 2020 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-03-05 16:37:57
+2020-08-13 20:14:11
 </span></footer>
                                 
                                 </section>
@@ -648,12 +706,12 @@
 
             
                 
-                <a href="observer.html" class="navigation navigation-prev " aria-label="Previous page: 观察者">
+                <a href="strategy.html" class="navigation navigation-prev " aria-label="Previous page: 策略">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="command.html" class="navigation navigation-next " aria-label="Next page: 命令">
+                <a href="templatemethod.html" class="navigation navigation-next " aria-label="Next page: 模板方法">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -664,7 +722,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"责任链","level":"1.2.3.5","depth":3,"next":{"title":"命令","level":"1.2.3.6","depth":3,"path":"designpatterns/behavioral/command.md","ref":"designpatterns/behavioral/command.md","articles":[]},"previous":{"title":"观察者","level":"1.2.3.4","depth":3,"path":"designpatterns/behavioral/observer.md","ref":"designpatterns/behavioral/observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"designpatterns/behavioral/responsibilitychain.md","mtime":"2020-03-05T08:37:57.403Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-13T12:14:29.279Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"委派","level":"1.2.3.2","depth":3,"next":{"title":"模板方法","level":"1.2.3.3","depth":3,"path":"designpatterns/behavioral/templatemethod.md","ref":"designpatterns/behavioral/templatemethod.md","articles":[]},"previous":{"title":"策略","level":"1.2.3.1","depth":3,"path":"designpatterns/behavioral/strategy.md","ref":"designpatterns/behavioral/strategy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"designpatterns/behavioral/delegate.md","mtime":"2020-08-13T12:14:11.289Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-13T12:14:29.279Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
