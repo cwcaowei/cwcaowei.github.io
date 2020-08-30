@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>String常量池 · 随笔</title>
+        <title>线程状态与停止复位 · 随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -506,9 +506,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../concurrency/threadstate.html">
+        <li class="chapter active" data-level="1.3.1" data-path="threadstate.html">
             
-                <a href="../concurrency/threadstate.html">
+                <a href="threadstate.html">
             
                     
                     线程状态与停止复位
@@ -570,9 +570,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="StringConstantPool.html">
+        <li class="chapter " data-level="1.5.1" data-path="../other/StringConstantPool.html">
             
-                <a href="StringConstantPool.html">
+                <a href="../other/StringConstantPool.html">
             
                     
                     String常量池
@@ -618,7 +618,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >String常量池</a>
+        <a href=".." >线程状态与停止复位</a>
     </h1>
 </div>
 
@@ -633,40 +633,81 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-java">String s1 = <span class="hljs-string">&quot;hello&quot;</span>;
-String s2 = <span class="hljs-string">&quot;hello&quot;</span>;
-String s3 = <span class="hljs-string">&quot;he&quot;</span> + <span class="hljs-string">&quot;llo&quot;</span>;
-String s4 = <span class="hljs-string">&quot;he&quot;</span> + <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;llo&quot;</span>);
-String s5 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;hello&quot;</span>);
-String s6 = s5.intern();
-String s7 = <span class="hljs-string">&quot;he&quot;</span>;
-String s8 = <span class="hljs-string">&quot;llo&quot;</span>;
-String s9 = s7 + s8;
-System.out.println(s1 == s2); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// &#x4EE5;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x5F62;&#x5F0F;&#x521B;&#x5EFA;String&#x53D8;&#x91CF;&#x65F6;&#xFF0C;JVM&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x5C31;&#x628A;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&quot;hello&quot;&#x653E;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x518D;&#x4EE5;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x5F62;&#x5F0F;&#x521B;&#x5EFA;&quot;hello&quot;&#x53D8;&#x91CF;&#x65F6;,&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s1==s2&#x3002;</span>
-System.out.println(s1 == s3); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// &quot;he&quot; + &quot;llo&quot;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x95F4;JVM&#x4F1A;&#x5C06;&#x5176;&#x62FC;&#x63A5;&#x4E3A;&quot;hello&quot;&#xFF0C;&#x5982;&#x679C;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6CA1;&#x6709;&#xFF0C;&#x5C31;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5C06;&quot;he&quot;&#x548C;&quot;llo&quot;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;s1==s3&#x3002;</span>
-System.out.println(s1 == s4); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// new String(&quot;llo&quot;)&#x521B;&#x5EFA;&#x4E86;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&quot;llo&quot;&#x5B58;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#xFF0C;new String(&quot;llo&quot;)&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&quot;he&quot; + new String(&quot;llo&quot;)&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x76F8;&#x52A0;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x4F18;&#x5316;&#xFF0C;&#x76F8;&#x52A0;&#x7684;&#x7ED3;&#x679C;&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&#x6240;&#x4EE5;s1!=s4&#x3002;</span>
-System.out.println(s1 == s9); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// s7 + s8&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x76F8;&#x52A0;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x4F18;&#x5316;&#xFF0C;&#x76F8;&#x52A0;&#x7684;&#x7ED3;&#x679C;&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&#x6240;&#x4EE5;s1!=s9</span>
-System.out.println(s4 == s5); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// s4&#x548C;s5&#x662F;&#x5806;&#x4E2D;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;s4!=s5&#x3002;</span>
+                                <h4 id="java&#x7684;6&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;"><a name="java&#x7684;6&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;" class="anchor-navigation-ex-anchor" href="#java&#x7684;6&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;"><i class="fa fa-link" aria-hidden="true"></i></a>Java&#x7684;6&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;</h4>
+<ul>
+<li><p>NEW</p>
+<p>&#x7EBF;&#x7A0B;&#x88AB;&#x6784;&#x5EFA;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x8C03;&#x7528;start&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>RUNNABLE</p>
+<p>JAVA&#x7EBF;&#x7A0B;&#x628A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;ready&#x548C;running&#x4E24;&#x79CD;&#x72B6;&#x6001;&#x7EDF;&#x4E00;&#x79F0;&#x4E3A;&#x201C;&#x8FD0;&#x884C;&#x201D;</p>
+</li>
+<li><p>BLOCKED</p>
+<p>&#x8FD0;&#x884C;&#x7684;&#x7EBF;&#x7A0B;&#x5728;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x540C;&#x6B65;&#x9501;&#x65F6;&#xFF0C;&#x82E5;&#x8BE5;&#x540C;&#x6B65;&#x9501;&#x88AB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x9501;&#x5360;&#x7528;&#x4E86;&#xFF0C;&#x90A3;&#x4E48; jvm &#x4F1A;&#x628A;&#x5F53;&#x524D;&#x7684;&#x7EBF;&#x7A0B;&#x653E;&#x5165;&#x5230;&#x9501;&#x6C60;&#x4E2D;</p>
+</li>
+<li><p>WAITING</p>
+<p>&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x7684;&#x901A;&#x77E5;&#x6216;&#x4E2D;&#x65AD;</p>
+</li>
+<li><p>TIMED_WAITING</p>
+<p>&#x8D85;&#x65F6;&#x4EE5;&#x540E;&#x81EA;&#x52A8;&#x8FD4;&#x56DE;</p>
+</li>
+<li><p>TERMINATED</p>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x6216;&#x6B7B;&#x4EA1;</p>
+</li>
+</ul>
+<p><img src="../assets/concurrency/threadstate.png" alt=""></p>
+<h4 id="&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;5&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;"><a name="&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;5&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;" class="anchor-navigation-ex-anchor" href="#&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;5&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;5&#x79CD;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;</h4>
+<ul>
+<li><p>new</p>
+<p>&#x65B0;&#x5EFA;&#xFF0C;&#x5DF2;&#x5360;&#x7528;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x548C;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x8FD8;&#x6CA1;&#x6709;&#x5F00;&#x59CB;&#x6267;&#x884C;</p>
+</li>
+<li><p>ready</p>
+<p>&#x5F00;&#x59CB;&#x6267;&#x884C;&#xFF0C;&#x7B49;&#x5F85;&#x7CFB;&#x7EDF;&#x8C03;&#x5EA6;&#x5206;&#x914D;CPU&#x4F7F;&#x7528;&#x6743;</p>
+</li>
+<li><p>running</p>
+<p>&#x7EBF;&#x7A0B;&#x83B7;&#x5F97;&#x4E86;CPU&#x4F7F;&#x7528;&#x6743;&#xFF0C;&#x6B63;&#x5728;&#x6267;&#x884C;</p>
+</li>
+<li><p>waiting</p>
+<p>&#x7B49;&#x5F85;/&#x6302;&#x8D77;&#xFF0C;&#x8BA9;&#x51FA;CPU&#x8D44;&#x6E90;&#x7ED9;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;</p>
+</li>
+<li><p>terminated</p>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x6216;&#x6B7B;&#x4EA1;</p>
+</li>
+</ul>
+<h4 id="&#x7EBF;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#x4E0E;&#x590D;&#x4F4D;"><a name="&#x7EBF;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#x4E0E;&#x590D;&#x4F4D;" class="anchor-navigation-ex-anchor" href="#&#x7EBF;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#x4E0E;&#x590D;&#x4F4D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EBF;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#x4E0E;&#x590D;&#x4F4D;</h4>
+<ul>
+<li><p>&#x7EC8;&#x6B62;</p>
+<p>&#x7EBF;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x7B80;&#x5355;&#x7684;&#x901A;&#x8FC7;&#x8C03;&#x7528;stop&#x65B9;&#x6CD5;&#x3002;&#x867D;&#x7136;API&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x548C;&#x5176;&#x4ED6;&#x7684;&#x7EBF;&#x7A0B;&#x63A7;&#x5236;&#x65B9;&#x6CD5;&#x5982;suspend&#x3001;resume&#x4E00;&#x6837;&#x90FD;&#x662F;Deprecated&#x7684;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF0C;stop&#x65B9;&#x6CD5;&#x5728;&#x7ED3;&#x675F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x65F6;&#x5E76;&#x4E0D;&#x4F1A;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x7684;&#x8D44;&#x6E90;&#x6B63;&#x5E38;&#x91CA;&#x653E;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x5BFC;&#x81F4;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x4E9B;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#x72B6;&#x6001;&#x3002;&#x8981;&#x4F18;&#x96C5;&#x7684;&#x53BB;&#x4E2D;&#x65AD;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5728;&#x7EBF;&#x7A0B;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;interrupt&#x65B9;&#x6CD5;&#x3002;&#x5F53;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;interrupt&#x65B9;&#x6CD5;&#xFF0C;&#x8868;&#x793A;&#x5411;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6253;&#x4E2A;&#x62DB;&#x547C;&#xFF0C;&#x544A;&#x8BC9;&#x5B83;&#x53EF;&#x4EE5;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x81F3;&#x4E8E;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4E2D;&#x65AD;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x81EA;&#x5DF1;&#xFF0C;interrupt&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x901A;&#x8FC7;unpark&#x65B9;&#x6CD5;&#x53BB;&#x968F;&#x673A;&#x5524;&#x9192;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5E76;&#x5C06;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x6807;&#x8BC6;&#x4F4D;&#x8BBE;&#x4E3A;true&#x3002;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#x68C0;&#x67E5;&#x81EA;&#x8EAB;&#x662F;&#x5426;&#x88AB;&#x4E2D;&#x65AD;&#x6765;&#x8FDB;&#x884C;&#x54CD;&#x5E94;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;isInterrupted&#x65B9;&#x6CD5;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x88AB;&#x4E2D;&#x65AD;&#x3002;</p>
+<pre><code class="lang-java">  Thread thread = <span class="hljs-keyword">new</span> Thread(() -&gt; {
+            <span class="hljs-keyword">while</span> (!Thread.currentThread().isInterrupted()) {
+                System.out.println(<span class="hljs-string">&quot;execute&quot;</span>);
+            }
+        }, <span class="hljs-string">&quot;interruptDemo&quot;</span>);
+  thread.start();
+  TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);
+  thread.interrupt();
 </code></pre>
-<pre><code class="lang-java">System.out.println(s1 == s6); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// intern()&#x80FD;&#x4F7F;&#x4E00;&#x4E2A;&#x4F4D;&#x4E8E;&#x5806;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x52A8;&#x6001;&#x7684;&#x52A0;&#x5165;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x52A0;&#x8F7D;&#x8FDB;&#x5185;&#x5B58;&#x4E86;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6709;&#x8BE5;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5426;&#x5219;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
-
-String s10 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;hello&quot;</span>) + <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;h&quot;</span>);
-String s11 = s10.intern();
-String s12 = <span class="hljs-string">&quot;helloh&quot;</span>;
-System.out.println(s13 == s14);
-<span class="hljs-comment">// &#x751F;&#x6210;&#x4E86;5&#x4E2A;&#x5BF9;&#x8C61;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&quot;hello&quot;&#x548C;&quot;h&quot;,&#x4E24;&#x4E2A;&#x5728;&#x5806;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;new String(&quot;hello&quot;)&#x548C;new String(&quot;h&quot;)&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x76F8;&#x52A0;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;intern&#x5C06;&quot;helloh&quot;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x5E76;&#x5C06;&#x76F8;&#x52A0;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&quot;helloh&quot;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s14&#x548C;s13&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s13==s14&#x3002;</span>
-String s13 = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;test&quot;</span>).append(<span class="hljs-string">&quot;this&quot;</span>).toString();
-System.out.println(s13 == s13.intern()); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// s13.intern()&#x5C06;s13&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x5B57;&#x9762;&#x91CF;&quot;testthis&quot;&#x7684;&#x5F15;&#x7528;&#x5B58;&#x5230;&#x4E86;&#x5E38;&#x91CF;&#x6C60;</span>
+</li>
+<li><p>&#x590D;&#x4F4D;  </p>
+<p>&#x7EBF;&#x7A0B;&#x4E2D;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x9759;&#x6001;&#x65B9;&#x6CD5;Thread.interrupted()&#x5BF9;&#x8BBE;&#x7F6E;&#x4E2D;&#x65AD;&#x6807;&#x8BC6;&#x7684;&#x7EBF;&#x7A0B;&#x590D;&#x4F4D;&#x3002;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#x5982;sleep/wait/join&#x7B49;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x629B;&#x51FA;InterruptedException&#x5F02;&#x5E38;&#xFF0C;&#x5728;InterruptedException&#x629B;&#x51FA;&#x4E4B;&#x524D;&#xFF0C;JVM&#x4F1A;&#x5148;&#x628A;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x6807;&#x8BC6;&#x4F4D;&#x6E05;&#x9664;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x4F1A;&#x629B;&#x51FA;InterruptedException&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x8C03;&#x7528;isInterrupted&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE; false&#x3002;</p>
+<pre><code class="lang-java">Thread thread = <span class="hljs-keyword">new</span> Thread(() -&gt; {
+          <span class="hljs-keyword">while</span> (!Thread.currentThread().isInterrupted()) {
+              <span class="hljs-keyword">try</span> {
+                  System.out.println(<span class="hljs-string">&quot;execute&quot;</span>);
+                  Thread.sleep(<span class="hljs-number">1000</span>);
+              } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                  <span class="hljs-comment">// &#x4E3B;&#x7EBF;&#x7A0B;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;interrupt()&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x8BE5;&#x5F02;&#x5E38;&#xFF0C;&#x4E2D;&#x65AD;&#x6807;&#x8BC6;&#x4F4D;&#x88AB;&#x7F6E;&#x4E3A;&#x4E86;false&#xFF0C;&#x6B64;&#x65F6;&#x5FAA;&#x73AF;&#x5C06;&#x7EE7;&#x7EED;</span>
+                  <span class="hljs-comment">// &#x82E5;&#x60F3;&#x7ED3;&#x675F;&#x5FAA;&#x73AF;&#xFF0C;&#x518D;&#x6B21;&#x4E2D;&#x65AD;</span>
+                  Thread.currentThread().interrupt();
+              }
+          }
+      }, <span class="hljs-string">&quot;interruptedDemo&quot;</span>);
+thread.start();
+thread.interrupt();
 </code></pre>
+</li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; bukeyan 2020 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-04-21 17:29:05
+2020-08-30 19:17:32
 </span></footer>
                                 
                                 </section>
@@ -702,7 +743,7 @@ System.out.println(s13 == s13.intern()); <span class="hljs-comment">// true</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String常量池","level":"1.5.1","depth":2,"previous":{"title":"其他","level":"1.5","depth":1,"ref":"","articles":[{"title":"String常量池","level":"1.5.1","depth":2,"path":"other/StringConstantPool.md","ref":"other/StringConstantPool.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"other/StringConstantPool.md","mtime":"2020-04-21T09:29:05.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-30T11:18:05.174Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"线程状态与停止复位","level":"1.3.1","depth":2,"next":{"title":"Oauth2","level":"1.4","depth":1,"ref":"","articles":[{"title":"WebSecurityConfigurerAdapter与ResourceServerConfigurerAdapter","level":"1.4.1","depth":2,"path":"oauth2/websecurityconfigureradapter-yu-resourceserverconfigureradapter.md","ref":"oauth2/websecurityconfigureradapter-yu-resourceserverconfigureradapter.md","articles":[]}]},"previous":{"title":"并发","level":"1.3","depth":1,"ref":"","articles":[{"title":"线程状态与停止复位","level":"1.3.1","depth":2,"path":"concurrency/threadstate.md","ref":"concurrency/threadstate.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"concurrency/threadstate.md","mtime":"2020-08-30T11:17:32.564Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-30T11:18:05.174Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
