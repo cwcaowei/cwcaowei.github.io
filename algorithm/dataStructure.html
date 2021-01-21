@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>String常量池 · 随笔</title>
+        <title>数据结构 · 随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -89,6 +89,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="mergeSortedList.html" />
+    
     
 
     </head>
@@ -144,9 +146,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../algorithm/dataStructure.html">
+        <li class="chapter active" data-level="1.2.1" data-path="dataStructure.html">
             
-                <a href="../algorithm/dataStructure.html">
+                <a href="dataStructure.html">
             
                     
                     数据结构
@@ -157,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../algorithm/mergeSortedList.html">
+        <li class="chapter " data-level="1.2.2" data-path="mergeSortedList.html">
             
-                <a href="../algorithm/mergeSortedList.html">
+                <a href="mergeSortedList.html">
             
                     
                     合并有序链表
@@ -170,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../algorithm/oddEvenList.html">
+        <li class="chapter " data-level="1.2.3" data-path="oddEvenList.html">
             
-                <a href="../algorithm/oddEvenList.html">
+                <a href="oddEvenList.html">
             
                     
                     奇偶链表
@@ -628,9 +630,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.6.1" data-path="StringConstantPool.html">
+        <li class="chapter " data-level="1.6.1" data-path="../other/StringConstantPool.html">
             
-                <a href="StringConstantPool.html">
+                <a href="../other/StringConstantPool.html">
             
                     
                     String常量池
@@ -676,7 +678,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >String常量池</a>
+        <a href=".." >数据结构</a>
     </h1>
 </div>
 
@@ -691,40 +693,170 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-java">String s1 = <span class="hljs-string">&quot;hello&quot;</span>;
-String s2 = <span class="hljs-string">&quot;hello&quot;</span>;
-String s3 = <span class="hljs-string">&quot;he&quot;</span> + <span class="hljs-string">&quot;llo&quot;</span>;
-String s4 = <span class="hljs-string">&quot;he&quot;</span> + <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;llo&quot;</span>);
-String s5 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;hello&quot;</span>);
-String s6 = s5.intern();
-String s7 = <span class="hljs-string">&quot;he&quot;</span>;
-String s8 = <span class="hljs-string">&quot;llo&quot;</span>;
-String s9 = s7 + s8;
-System.out.println(s1 == s2); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// &#x4EE5;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x5F62;&#x5F0F;&#x521B;&#x5EFA;String&#x53D8;&#x91CF;&#x65F6;&#xFF0C;JVM&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x5C31;&#x628A;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&quot;hello&quot;&#x653E;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x518D;&#x4EE5;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x5F62;&#x5F0F;&#x521B;&#x5EFA;&quot;hello&quot;&#x53D8;&#x91CF;&#x65F6;,&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s1==s2&#x3002;</span>
-System.out.println(s1 == s3); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// &quot;he&quot; + &quot;llo&quot;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x95F4;JVM&#x4F1A;&#x5C06;&#x5176;&#x62FC;&#x63A5;&#x4E3A;&quot;hello&quot;&#xFF0C;&#x5982;&#x679C;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6CA1;&#x6709;&#xFF0C;&#x5C31;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5C06;&quot;he&quot;&#x548C;&quot;llo&quot;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;s1==s3&#x3002;</span>
-System.out.println(s1 == s4); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// new String(&quot;llo&quot;)&#x521B;&#x5EFA;&#x4E86;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&quot;llo&quot;&#x5B58;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#xFF0C;new String(&quot;llo&quot;)&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&quot;he&quot; + new String(&quot;llo&quot;)&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x76F8;&#x52A0;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x4F18;&#x5316;&#xFF0C;&#x76F8;&#x52A0;&#x7684;&#x7ED3;&#x679C;&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&#x6240;&#x4EE5;s1!=s4&#x3002;</span>
-System.out.println(s1 == s9); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// s7 + s8&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x76F8;&#x52A0;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x4F18;&#x5316;&#xFF0C;&#x76F8;&#x52A0;&#x7684;&#x7ED3;&#x679C;&#x5B58;&#x4E8E;&#x5806;&#xFF0C;&#x6240;&#x4EE5;s1!=s9</span>
-System.out.println(s4 == s5); <span class="hljs-comment">// false</span>
-<span class="hljs-comment">// s4&#x548C;s5&#x662F;&#x5806;&#x4E2D;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;s4!=s5&#x3002;</span>
+                                <h4 id="&#x6563;&#x5217;&#x8868;&#xFF08;&#x54C8;&#x5E0C;&#x8868;&#xFF09;"><a name="&#x6563;&#x5217;&#x8868;&#xFF08;&#x54C8;&#x5E0C;&#x8868;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x6563;&#x5217;&#x8868;&#xFF08;&#x54C8;&#x5E0C;&#x8868;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6563;&#x5217;&#x8868;&#xFF08;&#x54C8;&#x5E0C;&#x8868;&#xFF09;</h4>
+<p>&#x4E00;&#x79CD;Key-Value&#x6620;&#x5C04;&#x5F62;&#x5F0F;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#xFF0C;&#x901A;&#x8FC7;Key&#x67E5;&#x627E;Value&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x63A5;&#x8FD1;&#x4E8E;O
+(1)&#xFF0C;&#x56E0;&#x4E3A;&#x5176;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x901A;&#x8FC7;&#x54C8;&#x5E0C;&#x51FD;&#x6570;&#x5C06;Key&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#xFF0C;&#x4E0D;&#x540C;&#x7684;Key&#x8F6C;&#x6362;&#x6210;&#x7684;&#x4E0B;&#x6807;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EB;&#x505A;&#x54C8;&#x5E0C;&#x51B2;&#x7A81;&#xFF0C;&#x901A;&#x8FC7;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x89E3;&#x51B3;&#xFF1A;</p>
+<ul>
+<li><p>&#x5F00;&#x653E;&#x5BFB;&#x5740;&#x6CD5;</p>
+<p>&#x5F53;&#x51B2;&#x7A81;&#x65F6;&#xFF0C;&#x5BFB;&#x627E;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5;&#x8BE5;&#x4F4D;&#x7F6E;&#x8FD8;&#x6CA1;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x8BE5;&#x4F4D;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x7EE7;&#x7EED;&#x5BFB;&#x627E;&#xFF0C;ThreaLocal&#x5C31;&#x662F;&#x8FD9;&#x6837;</p>
+</li>
+<li><p>&#x94FE;&#x8868;&#x6CD5;</p>
+<p>&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x5934;&#x8282;&#x70B9;&#xFF0C;&#x5F53;&#x51B2;&#x7A81;&#x65F6;&#xFF0C;&#x5C06;&#x65B0;&#x7684;Value&#x63D2;&#x5165;&#x5230;&#x94FE;&#x8868;&#x5C3E;&#x90E8;&#xFF0C;JDK1.7&#x7684;HashMap&#x5C31;&#x662F;&#x8FD9;&#x6837;</p>
+</li>
+</ul>
+<h4 id="&#x94FE;&#x8868;"><a name="&#x94FE;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x94FE;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x94FE;&#x8868;</h4>
+<ul>
+<li><p>&#x5355;&#x5411;&#x94FE;&#x8868;</p>
+<p>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5305;&#x542B;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x548C;&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6307;&#x9488;next&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53EB;&#x5934;&#x8282;&#x70B9;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53EB;&#x5C3E;&#x8282;&#x70B9;&#xFF0C;&#x5C3E;&#x8282;&#x70B9;&#x7684;next&#x6307;&#x5411;null</p>
+</li>
+<li><p>&#x53CC;&#x5411;&#x94FE;&#x8868;</p>
+<p>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5305;&#x542B;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x548C;&#x6307;&#x5411;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6307;&#x9488;next&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x6709;&#x4E2A;&#x6307;&#x5411;&#x524D;&#x7F6E;&#x8282;&#x70B9;&#x7684;prev&#x6307;&#x9488;&#xFF0C;&#x9664;&#x4E86;&#x5C3E;&#x8282;&#x70B9;&#x7684;next&#x6307;&#x5411;null&#xFF0C;&#x5934;&#x8282;&#x70B9;&#x7684;prev&#x4E5F;&#x6307;&#x5411;null</p>
+</li>
+</ul>
+<h4 id="&#x6811;"><a name="&#x6811;" class="anchor-navigation-ex-anchor" href="#&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6811;</h4>
+<ul>
+<li><p>&#x57FA;&#x672C;&#x672F;&#x8BED;</p>
+<ul>
+<li><p>&#x7956;&#x5148;&#x8282;&#x70B9;</p>
+<p>&#x6CBF;&#x6811;&#x6839;&#x5230;&#x67D0;&#x4E00;&#x8282;&#x70B9;&#x8DEF;&#x5F84;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x7956;&#x5148;&#x8282;&#x70B9;</p>
+</li>
+<li><p>&#x5B50;&#x5B59;&#x8282;&#x70B9;</p>
+<p>&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5B50;&#x5B59;&#x8282;&#x70B9;</p>
+</li>
+<li><p>&#x5B50;&#x8282;&#x70B9;</p>
+<p>&#x53C8;&#x79F0;&#x5B69;&#x5B50;&#x8282;&#x70B9;</p>
+</li>
+<li><p>&#x5B50;&#x6811;</p>
+<p>&#x8282;&#x70B9;&#x4E0B;&#x9762;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#x5373;&#x4E3A;&#x4E00;&#x4E2A;&#x5B50;&#x6811;</p>
+</li>
+<li><p>&#x8282;&#x70B9;&#x7684;&#x5EA6;</p>
+<p>&#x8282;&#x70B9;&#x7684;&#x5B50;&#x6811;&#x4E2A;&#x6570;</p>
+</li>
+<li><p>&#x6811;&#x7684;&#x5EA6;</p>
+<p>&#x6811;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x5EA6;</p>
+</li>
+<li><p>&#x6811;&#x7684;&#x6DF1;&#x5EA6;</p>
+<p>&#x6839;&#x5728;1&#x5C42;&#xFF0C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x7684;&#x5C42;&#x6570;&#x662F;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5C42;&#x6570;+1&#xFF0C;&#x6700;&#x5927;&#x7684;&#x5C42;&#x6570;&#x5373;&#x4E3A;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</p>
+</li>
+<li><p>&#x8FB9;</p>
+<p>&#x9664;&#x4E86;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x4E00;&#x6761;&#x901A;&#x5F80;&#x4E0A;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x8FB9;&#xFF0C;&#x6240;&#x4EE5;N&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6811;&#x6709;N-1&#x6761;&#x8FB9;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x4E00;&#x79CD;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6700;&#x591A;&#x6709;2&#x4E2A;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6811;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;&#x5DE6;&#x5B69;&#x5B50;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;&#x53F3;&#x5B69;&#x5B50;&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x6027;&#x8D28;&#xFF1A;</p>
+<ul>
+<li><p>&#x7B2C;k&#x5C42;&#x7684;&#x6700;&#x5927;&#x8282;&#x70B9;&#x6570;&#x4E3A;2&#x7684;k-1&#x6B21;&#x65B9;</p>
+</li>
+<li><p>&#x6DF1;&#x5EA6;&#x4E3A;k&#x7684;&#x6811;&#x7684;&#x6700;&#x5927;&#x8282;&#x70B9;&#x6570;&#x4E3A;2&#x7684;k&#x6B21;&#x65B9;-1</p>
+</li>
+<li><p>&#x82E5;n0&#x8868;&#x793A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x4E2A;&#x6570;&#xFF0C;n1&#x8868;&#x793A;&#x5EA6;&#x4E3A;1&#x7684;&#x8282;&#x70B9;&#x7684;&#x4E2A;&#x6570;&#xFF0C;n2&#x8868;&#x793A;&#x5EA6;&#x4E3A;2&#x7684;&#x8282;&#x70B9;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5219;n0=n2+1</p>
+</li>
+</ul>
+</li>
+<li><p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x6240;&#x6709;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x5DE6;&#x53F3;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x4E14;&#x6240;&#x6709;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x5728;&#x540C;&#x4E00;&#x5C42;</p>
+</li>
+<li><p>&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x5BF9;&#x4E00;&#x4E2A;&#x6709;n&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x6309;&#x5C42;&#x7EA7;&#x53CA;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x7684;&#x987A;&#x5E8F;&#x7F16;&#x53F7;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6811;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x548C;&#x540C;&#x6837;&#x6DF1;&#x5EA6;&#x7684;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7F16;&#x53F7;&#x7684;&#x8282;&#x70B9;&#x4F4D;&#x7F6E;&#x76F8;&#x540C;&#xFF0C;&#x5373;&#x4E3A;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x4ECE;1&#x5230;12&#x8282;&#x70B9;&#xFF0C;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x8282;&#x70B9;&#x4F4D;&#x7F6E;&#x548C;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E00;&#x81F4;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E00;&#x79CD;&#x5B50;&#x96C6;&#x7684;&#x6982;&#x5FF5;</p>
+<p><img src="../assets/algorithm/fullBinaryTree.png" alt="">
+<img src="../assets/algorithm/completeBinaryTree.png" alt=""></p>
+</li>
+<li><p>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</p>
+<p>&#x53C8;&#x79F0;&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x6027;&#x8D28;&#xFF1A;</p>
+<ul>
+<li><p>&#x82E5;&#x5DE6;&#x5B50;&#x6811;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x5DE6;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5C0F;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;</p>
+</li>
+<li><p>&#x82E5;&#x53F3;&#x5B50;&#x6811;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5747;&#x5927;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;</p>
+</li>
+<li><p>&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x4E5F;&#x90FD;&#x662F;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</p>
+</li>
+<li><p>&#x641C;&#x7D22;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(logn)</p>
+</li>
+</ul>
+<p><img src="../assets/algorithm/binarySearchTree.png" alt=""></p>
+</li>
+<li><p>&#x4E8C;&#x53C9;&#x5806;</p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x6839;&#x8282;&#x70B9;&#x79F0;&#x4E3A;&#x5806;&#x9876;&#xFF0C;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x7C7B;&#x578B;</p>
+<ul>
+<li><p>&#x6700;&#x5927;&#x5806;</p>
+<p>&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x90FD;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x5B83;&#x7684;&#x5DE6;&#x53F3;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;</p>
+</li>
+<li><p>&#x6700;&#x5C0F;&#x5806;</p>
+<p>&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x90FD;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#x5B83;&#x7684;&#x5DE6;&#x53F3;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;"><a name="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;</h4>
+<ul>
+<li><p>&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;</p>
+<ul>
+<li><p>&#x524D;&#x5E8F;&#x904D;&#x5386;</p>
+<p>&#x987A;&#x5E8F;&#x4E3A;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x5DE6;&#x5B50;&#x6811;&#xFF0C;&#x53F3;&#x5B50;&#x6811;</p>
+<p><img src="../assets/algorithm/DLR.png" alt=""></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DLR</span><span class="hljs-params">(TreeNode root)</span> </span>{
+    System.out.println(root);
+    DLR(root.getLeftChild());
+    DLR(root.getRightChild());
+}
 </code></pre>
-<pre><code class="lang-java">System.out.println(s1 == s6); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// intern()&#x80FD;&#x4F7F;&#x4E00;&#x4E2A;&#x4F4D;&#x4E8E;&#x5806;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x52A8;&#x6001;&#x7684;&#x52A0;&#x5165;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x52A0;&#x8F7D;&#x8FDB;&#x5185;&#x5B58;&#x4E86;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x6709;&#x8BE5;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5426;&#x5219;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x8BE5;&#x5B57;&#x9762;&#x91CF;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5F15;&#x7528;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</span>
-
-String s10 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;hello&quot;</span>) + <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;h&quot;</span>);
-String s11 = s10.intern();
-String s12 = <span class="hljs-string">&quot;helloh&quot;</span>;
-System.out.println(s13 == s14);
-<span class="hljs-comment">// &#x751F;&#x6210;&#x4E86;5&#x4E2A;&#x5BF9;&#x8C61;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&quot;hello&quot;&#x548C;&quot;h&quot;,&#x4E24;&#x4E2A;&#x5728;&#x5806;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;new String(&quot;hello&quot;)&#x548C;new String(&quot;h&quot;)&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x76F8;&#x52A0;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;intern&#x5C06;&quot;helloh&quot;&#x653E;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x5E76;&#x5C06;&#x76F8;&#x52A0;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&quot;helloh&quot;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s14&#x548C;s13&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;s13==s14&#x3002;</span>
-String s13 = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;test&quot;</span>).append(<span class="hljs-string">&quot;this&quot;</span>).toString();
-System.out.println(s13 == s13.intern()); <span class="hljs-comment">// true</span>
-<span class="hljs-comment">// s13.intern()&#x5C06;s13&#x7684;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x5B57;&#x9762;&#x91CF;&quot;testthis&quot;&#x7684;&#x5F15;&#x7528;&#x5B58;&#x5230;&#x4E86;&#x5E38;&#x91CF;&#x6C60;</span>
+</li>
+<li><p>&#x4E2D;&#x5E8F;&#x904D;&#x5386;</p>
+<p>&#x987A;&#x5E8F;&#x4E3A;&#x5DE6;&#x5B50;&#x6811;&#xFF0C;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x53F3;&#x5B50;&#x6811;</p>
+<p><img src="../assets/algorithm/LDR.png" alt=""></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DLR</span><span class="hljs-params">(TreeNode root)</span> </span>{
+    DLR(root.getLeftChild());
+    System.out.println(root);
+    DLR(root.getRightChild());
+}
 </code></pre>
+</li>
+<li><p>&#x540E;&#x5E8F;&#x904D;&#x5386;</p>
+<p>&#x987A;&#x5E8F;&#x4E3A;&#x5DE6;&#x5B50;&#x6811;&#xFF0C;&#x53F3;&#x5B50;&#x6811;&#xFF0C;&#x6839;&#x8282;&#x70B9;</p>
+<p><img src="../assets/algorithm/LRD.png" alt=""></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DLR</span><span class="hljs-params">(TreeNode root)</span> </span>{
+    DLR(root.getLeftChild());
+    DLR(root.getRightChild());
+    System.out.println(root);
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;</p>
+<ul>
+<li><p>&#x5C42;&#x5E8F;&#x904D;&#x5386;</p>
+<p>&#x987A;&#x5E8F;&#x4E3A;&#x4ECE;&#x6839;&#x8282;&#x70B9;&#x5230;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;</p>
+<p><img src="../assets/algorithm/levelTraversal.png" alt=""></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">levelTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
+    Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+    <span class="hljs-comment">// &#x6839;&#x8282;&#x70B9;&#x5165;&#x961F;</span>
+    queue.offer(root);
+    <span class="hljs-keyword">while</span> (!queue.isEmpty()) {
+        <span class="hljs-comment">// &#x961F;&#x9996;&#x51FA;&#x961F;</span>
+        TreeNode node = queue.poll();
+        System.out.println(node);
+        <span class="hljs-keyword">if</span> (node.getLeftChild() != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// &#x5DE6;&#x5B69;&#x5B50;&#x5165;&#x961F;</span>
+            queue.offer(node.getLeftChild());
+        }
+        <span class="hljs-keyword">if</span> (node.getRightChild() != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// &#x53F3;&#x5B69;&#x5B50;&#x5165;&#x961F;</span>
+            queue.offer(node.getRightChild());
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x4F18;&#x5148;&#x961F;&#x5217;"><a name="&#x4F18;&#x5148;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x4F18;&#x5148;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F18;&#x5148;&#x961F;&#x5217;</h4>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; bukeyan 2020 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-04-21 17:29:05
+2020-12-23 23:24:03
 </span></footer>
                                 
                                 </section>
@@ -753,6 +885,10 @@ System.out.println(s13 == s13.intern()); <span class="hljs-comment">// true</spa
             
                 
                 
+                <a href="mergeSortedList.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 合并有序链表">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -760,7 +896,7 @@ System.out.println(s13 == s13.intern()); <span class="hljs-comment">// true</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String常量池","level":"1.6.1","depth":2,"previous":{"title":"其他","level":"1.6","depth":1,"ref":"","articles":[{"title":"String常量池","level":"1.6.1","depth":2,"path":"other/StringConstantPool.md","ref":"other/StringConstantPool.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"other/StringConstantPool.md","mtime":"2020-04-21T09:29:05.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-21T08:34:22.851Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据结构","level":"1.2.1","depth":2,"next":{"title":"合并有序链表","level":"1.2.2","depth":2,"path":"algorithm/mergeSortedList.md","ref":"algorithm/mergeSortedList.md","articles":[]},"previous":{"title":"数据结构与算法","level":"1.2","depth":1,"ref":"","articles":[{"title":"数据结构","level":"1.2.1","depth":2,"path":"algorithm/dataStructure.md","ref":"algorithm/dataStructure.md","articles":[]},{"title":"合并有序链表","level":"1.2.2","depth":2,"path":"algorithm/mergeSortedList.md","ref":"algorithm/mergeSortedList.md","articles":[]},{"title":"奇偶链表","level":"1.2.3","depth":2,"path":"algorithm/oddEvenList.md","ref":"algorithm/oddEvenList.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"algorithm/dataStructure.md","mtime":"2020-12-23T15:24:03.420Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-21T08:34:22.851Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
