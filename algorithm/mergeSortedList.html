@@ -581,6 +581,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.2" data-path="../concurrency/synchronized.html">
+            
+                <a href="../concurrency/synchronized.html">
+            
+                    
+                    synchronized详解
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -699,6 +712,12 @@
 <p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank">LeetCode&#x7B2C;21&#x9898;</a></p>
 <ul>
 <li><p>&#x975E;&#x9012;&#x5F52;&#x89E3;&#x6CD5;</p>
+<ul>
+<li><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(m+n)&#xFF0C;m&#x548C;n&#x5206;&#x522B;&#x4E3A;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x6BCF;&#x6B21;&#x5FAA;&#x73AF;&#x53EA;&#x4F1A;&#x6709;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x88AB;&#x653E;&#x5165;&#x5408;&#x5E76;&#x94FE;&#x8868;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x591A;&#x6709;m+n&#x6B21;&#x5FAA;&#x73AF;</p>
+</li>
+<li><p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(1)</p>
+</li>
+</ul>
 <pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> </span>{
     <span class="hljs-comment">// &#x82E5;&#x67D0;&#x4E2A;&#x94FE;&#x8868;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x53E6;&#x4E00;&#x4E2A;&#x94FE;&#x8868;</span>
         <span class="hljs-keyword">if</span> (l1 == <span class="hljs-keyword">null</span>) {
@@ -741,6 +760,12 @@ cur = cur.next
 <p><img src="../assets/algorithm/mergeSortedList3.jpg" alt=""></p>
 </li>
 <li><p>&#x9012;&#x5F52;&#x89E3;&#x6CD5;</p>
+<ul>
+<li><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(m+n)&#xFF0C;&#x5176;&#x4E2D;m&#x548C;n&#x5206;&#x522B;&#x4E3A;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x9012;&#x5F52;&#x90FD;&#x4F1A;&#x53BB;&#x6389;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x4E2D;&#x67D0;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x5934;&#x8282;&#x70B9;&#xFF08;&#x76F4;&#x5230;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x51FD;&#x6570; mergeTwoList&#x6700;&#x591A;&#x628A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x9012;&#x5F52;&#x5230;</p>
+</li>
+<li><p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(m+n)&#xFF0C;&#x5176;&#x4E2D;m&#x548C;n&#x5206;&#x522B;&#x4E3A;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x9012;&#x5F52;&#x9700;&#x8981;&#x6D88;&#x8017;&#x6808;&#x7A7A;&#x95F4;&#xFF0C;&#x6808;&#x7A7A;&#x95F4;&#x7684;&#x5927;&#x5C0F;&#x53D6;&#x51B3;&#x4E8E;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x6DF1;&#x5EA6;&#xFF0C;&#x7ED3;&#x675F;&#x9012;&#x5F52;&#x65F6;mergeTwoLists&#x51FD;&#x6570;&#x6700;&#x591A;&#x8C03;&#x7528;m+n&#x6B21;</p>
+</li>
+</ul>
 <pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> </span>{
     <span class="hljs-comment">// &#x82E5;&#x67D0;&#x4E2A;&#x94FE;&#x8868;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x53E6;&#x4E00;&#x4E2A;&#x94FE;&#x8868;</span>
     <span class="hljs-keyword">if</span> (l1 == <span class="hljs-keyword">null</span>) {
@@ -762,7 +787,7 @@ cur = cur.next
 </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; bukeyan 2020 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-01-05 21:17:16
+2021-01-26 11:32:05
 </span></footer>
                                 
                                 </section>
@@ -806,7 +831,7 @@ cur = cur.next
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"合并有序链表","level":"1.2.2","depth":2,"next":{"title":"奇偶链表","level":"1.2.3","depth":2,"path":"algorithm/oddEvenList.md","ref":"algorithm/oddEvenList.md","articles":[]},"previous":{"title":"数据结构","level":"1.2.1","depth":2,"path":"algorithm/dataStructure.md","ref":"algorithm/dataStructure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"algorithm/mergeSortedList.md","mtime":"2021-01-05T13:17:16.467Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-21T08:34:22.851Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"合并有序链表","level":"1.2.2","depth":2,"next":{"title":"奇偶链表","level":"1.2.3","depth":2,"path":"algorithm/oddEvenList.md","ref":"algorithm/oddEvenList.md","articles":[]},"previous":{"title":"数据结构","level":"1.2.1","depth":2,"path":"algorithm/dataStructure.md","ref":"algorithm/dataStructure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"algorithm/mergeSortedList.md","mtime":"2021-01-26T03:32:05.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-27T09:48:39.627Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
