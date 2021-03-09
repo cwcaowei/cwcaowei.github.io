@@ -1,0 +1,1217 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>内存 · 随笔</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="caowei">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="reference.html" />
+    
+    
+    <link rel="prev" href="classload.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    数据结构与算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../algorithm/dataStructure.html">
+            
+                <a href="../algorithm/dataStructure.html">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../algorithm/mergeSortedList.html">
+            
+                <a href="../algorithm/mergeSortedList.html">
+            
+                    
+                    合并有序链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../algorithm/oddEvenList.html">
+            
+                <a href="../algorithm/oddEvenList.html">
+            
+                    
+                    奇偶链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../algorithm/copyList.html">
+            
+                <a href="../algorithm/copyList.html">
+            
+                    
+                    复制带随机指针的链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    创建型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../designpatterns/creational/factory.html">
+            
+                <a href="../designpatterns/creational/factory.html">
+            
+                    
+                    工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../designpatterns/creational/singleton.html">
+            
+                <a href="../designpatterns/creational/singleton.html">
+            
+                    
+                    单例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../designpatterns/creational/prototype.html">
+            
+                <a href="../designpatterns/creational/prototype.html">
+            
+                    
+                    原型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../designpatterns/creational/builder.html">
+            
+                <a href="../designpatterns/creational/builder.html">
+            
+                    
+                    建造者
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    结构型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../designpatterns/structure/adapter.html">
+            
+                <a href="../designpatterns/structure/adapter.html">
+            
+                    
+                    适配器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../designpatterns/structure/decorator.html">
+            
+                <a href="../designpatterns/structure/decorator.html">
+            
+                    
+                    装饰者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../designpatterns/structure/proxy.html">
+            
+                <a href="../designpatterns/structure/proxy.html">
+            
+                    
+                    代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../designpatterns/structure/composite.html">
+            
+                <a href="../designpatterns/structure/composite.html">
+            
+                    
+                    组合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../designpatterns/structure/bridge.html">
+            
+                <a href="../designpatterns/structure/bridge.html">
+            
+                    
+                    桥接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../designpatterns/structure/flyweight.html">
+            
+                <a href="../designpatterns/structure/flyweight.html">
+            
+                    
+                    享元
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    行为型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../designpatterns/behavioral/strategy.html">
+            
+                <a href="../designpatterns/behavioral/strategy.html">
+            
+                    
+                    策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../designpatterns/behavioral/delegate.html">
+            
+                <a href="../designpatterns/behavioral/delegate.html">
+            
+                    
+                    委派
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../designpatterns/behavioral/templatemethod.html">
+            
+                <a href="../designpatterns/behavioral/templatemethod.html">
+            
+                    
+                    模板方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../designpatterns/behavioral/observer.html">
+            
+                <a href="../designpatterns/behavioral/observer.html">
+            
+                    
+                    观察者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../designpatterns/behavioral/responsibilitychain.html">
+            
+                <a href="../designpatterns/behavioral/responsibilitychain.html">
+            
+                    
+                    责任链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../designpatterns/behavioral/command.html">
+            
+                <a href="../designpatterns/behavioral/command.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../designpatterns/behavioral/state.html">
+            
+                <a href="../designpatterns/behavioral/state.html">
+            
+                    
+                    状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="../designpatterns/behavioral/visitor.html">
+            
+                <a href="../designpatterns/behavioral/visitor.html">
+            
+                    
+                    访问者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="../designpatterns/behavioral/memento.html">
+            
+                <a href="../designpatterns/behavioral/memento.html">
+            
+                    
+                    备忘录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="../designpatterns/behavioral/mediator.html">
+            
+                <a href="../designpatterns/behavioral/mediator.html">
+            
+                    
+                    中介者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.11" data-path="../designpatterns/behavioral/iterator.html">
+            
+                <a href="../designpatterns/behavioral/iterator.html">
+            
+                    
+                    迭代器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.12" data-path="../designpatterns/behavioral/interpreter.html">
+            
+                <a href="../designpatterns/behavioral/interpreter.html">
+            
+                    
+                    解释器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    并发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../concurrency/threadstate.html">
+            
+                <a href="../concurrency/threadstate.html">
+            
+                    
+                    线程状态与停止复位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../concurrency/threadSecurity.html">
+            
+                <a href="../concurrency/threadSecurity.html">
+            
+                    
+                    线程安全之原子性、可见性、有序性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../concurrency/volatile.html">
+            
+                <a href="../concurrency/volatile.html">
+            
+                    
+                    volatile原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../concurrency/synchronized.html">
+            
+                <a href="../concurrency/synchronized.html">
+            
+                    
+                    synchronized详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../concurrency/wait&notify.html">
+            
+                <a href="../concurrency/wait&notify.html">
+            
+                    
+                    wait与notify原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../concurrency/cas&atomic.html">
+            
+                <a href="../concurrency/cas&atomic.html">
+            
+                    
+                    CAS的ABA问题及原子类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../concurrency/threadLocal.html">
+            
+                <a href="../concurrency/threadLocal.html">
+            
+                    
+                    ThreadLocal源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    分布式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../distributed/BIO、NIO、AIO.html">
+            
+                <a href="../distributed/BIO、NIO、AIO.html">
+            
+                    
+                    BIO、NIO与AIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    JVM
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="classload.html">
+            
+                <a href="classload.html">
+            
+                    
+                    类加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="memory.html">
+            
+                <a href="memory.html">
+            
+                    
+                    内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    强引用、软引用、弱引用与虚引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="lifecycle.html">
+            
+                <a href="lifecycle.html">
+            
+                    
+                    类的生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="gcAlgorithm.html">
+            
+                <a href="gcAlgorithm.html">
+            
+                    
+                    垃圾回收算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="gcr.html">
+            
+                <a href="gcr.html">
+            
+                    
+                    垃圾收集器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="command&args.html">
+            
+                <a href="command&args.html">
+            
+                    
+                    常用命令与参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="tunning.html">
+            
+                <a href="tunning.html">
+            
+                    
+                    性能调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../db/mysqltransaction.html">
+            
+                <a href="../db/mysqltransaction.html">
+            
+                    
+                    MySQL事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../db/mysqllock.html">
+            
+                <a href="../db/mysqllock.html">
+            
+                    
+                    MySQL锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../db/mysqlindex.html">
+            
+                <a href="../db/mysqlindex.html">
+            
+                    
+                    MySQL索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../db/mysqltunning.html">
+            
+                <a href="../db/mysqltunning.html">
+            
+                    
+                    MySQL性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../db/subdb&table.html">
+            
+                <a href="../db/subdb&table.html">
+            
+                    
+                    分库分表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../db/redisstructure.html">
+            
+                <a href="../db/redisstructure.html">
+            
+                    
+                    Redis数据结构及原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../db/redisquestion.html">
+            
+                <a href="../db/redisquestion.html">
+            
+                    
+                    Redis常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Oauth2
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../oauth2/websecurityconfigureradapter-yu-resourceserverconfigureradapter.html">
+            
+                <a href="../oauth2/websecurityconfigureradapter-yu-resourceserverconfigureradapter.html">
+            
+                    
+                    WebSecurityConfigurerAdapter与ResourceServerConfigurerAdapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../other/StringConstantPool.html">
+            
+                <a href="../other/StringConstantPool.html">
+            
+                    
+                    String常量池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../other/interview.html">
+            
+                <a href="../other/interview.html">
+            
+                    
+                    面试总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >内存</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="&#x5E38;&#x91CF;&#x6C60;"><a name="&#x5E38;&#x91CF;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x91CF;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x91CF;&#x6C60;</h4>
+<ul>
+<li><p>&#x9759;&#x6001;&#x5E38;&#x91CF;&#x6C60;</p>
+<p>&#x5B58;&#x50A8;&#x5B57;&#x9762;&#x91CF;&#x53CA;&#x7B26;&#x53F7;&#x5F15;&#x7528;</p>
+</li>
+<li><p>&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;</p>
+</li>
+</ul>
+<ul>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;</li>
+</ul>
+<h4 id="&#x5185;&#x5B58;&#x6A21;&#x578B;"><a name="&#x5185;&#x5B58;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x5B58;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5185;&#x5B58;&#x6A21;&#x578B;</h4>
+<p><img src="../assets/jvm/memory.png" alt=""></p>
+<ul>
+<li><p>&#x65B9;&#x6CD5;&#x533A;</p>
+<p>&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#xFF0C;JVM&#x542F;&#x52A8;&#x65F6;&#x521B;&#x5EFA;&#xFF0C;&#x53C8;&#x540D;&#x975E;&#x5806;&#xFF0C;&#x5B58;&#x50A8;&#x5DF2;&#x88AB;JVM&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x4FE1;&#x606F;&#x3001;&#x5E38;&#x91CF;&#x3001;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3001;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x7B49;&#x6570;&#x636E;&#xFF0C;JDK1.8&#x540E;&#x65B9;&#x6CD5;&#x53BB;&#x88AB;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x7C7B;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5728;&#x5143;&#x7A7A;&#x95F4;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;&#x5B58;&#x50A8;&#x5728;&#x5806;&#x4E2D;</p>
+<p><img src="../assets/jvm/methodarea.png" alt=""></p>
+</li>
+<li><p>&#x5806;</p>
+<p>&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#xFF0C;JVM&#x542F;&#x52A8;&#x65F6;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x53CA;&#x6570;&#x7EC4;&#xFF0C;&#x7A7A;&#x95F4;&#x4E0D;&#x8DB3;&#x65F6;&#x4F1A;OOM&#xFF0C;&#x5206;&#x4E3A;Old&#x533A;&#x548C;Young&#x533A;&#xFF0C;Young&#x533A;&#x53C8;&#x5206;&#x4E3A;Survivor&#x533A;(S0&#x548C;S1&#xFF0C;&#x4E00;&#x6837;&#x5927;&#xFF0C;&#x53C8;&#x79F0;from&#x533A;&#x548C;to&#x533A;)&#x548C;Eden&#x533A;</p>
+<p><img src="../assets/jvm/createobj.png" alt=""></p>
+<p>JVM&#x9ED8;&#x8BA4;&#x4E3A;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;Eden&#x4E0A;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;buffer&#x533A;&#x57DF;&#xFF0C;&#x7528;&#x6765;&#x52A0;&#x901F;&#x5BF9;&#x8C61;&#x7684;&#x5206;&#x914D;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;TLAB&#xFF0C;&#x5168;&#x79F0;:Thread Local Allocation Buffer&#x3002; &#x5BF9;&#x8C61;&#x4F18;&#x5148;&#x4F1A;&#x5728;TLAB&#x4E0A;&#x5206;&#x914D;&#xFF0C;&#x4F46;&#x662F;TLAB&#x7A7A;&#x95F4;&#x901A;&#x5E38;&#x4F1A;&#x6BD4;&#x8F83;&#x5C0F;&#xFF08;&#x9ED8;&#x8BA4;&#x662F;Eden&#x533A;&#x7684;&#x767E;&#x5206;&#x4E4B;1&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x90A3;&#x4E48;&#x8FD8;&#x662F;&#x5728;&#x5171;&#x4EAB;&#x533A;&#x57DF;&#x5206;&#x914D;&#x3002;</p>
+<ul>
+<li><p>Survivor&#x533A;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;Eden&#x533A;&#x6BCF;&#x8FDB;&#x884C;&#x4E00;&#x6B21;Minor GC&#xFF0C;&#x5B58;&#x6D3B;&#x7684;&#x5BF9;&#x8C61;&#x5C31;&#x4F1A;&#x88AB;&#x9001;&#x5230;&#x8001;&#x5E74;&#x4EE3;&#xFF0C;&#x8001;&#x5E74;&#x4EE3;&#x5F88;&#x5FEB;&#x88AB;&#x586B;&#x6EE1;&#xFF0C;&#x89E6;&#x53D1;Major GC(&#x56E0;&#x4E3A;Major GC&#x4E00;&#x822C;&#x4F34;&#x968F;&#x7740;Minor GC,&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x89E6;&#x53D1;&#x4E86;Full GC)&#xFF0C;&#x8017;&#x65F6;&#x8F83;&#x957F;&#x3002;&#x6240;&#x4EE5;Survivor&#x533A;&#x7684;&#x5B58;&#x5728;&#x610F;&#x4E49;&#x5C31;&#x662F;&#x51CF;&#x5C11;&#x88AB;&#x9001;&#x5230;&#x8001;&#x5E74;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FDB;&#x800C;&#x51CF;&#x5C11;Full GC&#x7684;&#x53D1;&#x751F;&#xFF0C;Survivor&#x533A;&#x89C4;&#x5B9A;&#x53EA;&#x6709;&#x7ECF;&#x5386;16&#x6B21;Minor GC&#x8FD8;&#x80FD;&#x5728;&#x65B0;&#x751F;&#x4EE3;&#x4E2D;&#x5B58;&#x6D3B;&#x7684;&#x5BF9;&#x8C61;&#x624D;&#x4F1A;&#x88AB;&#x9001;&#x5230;&#x8001;&#x5E74;&#x4EE3;&#x3002;</p>
+</li>
+<li><p>&#x4E24;&#x4E2A;Survivor&#x533A;&#x7684;&#x5FC5;&#x8981;&#x6027;</p>
+<p>&#x89E3;&#x51B3;&#x7A7A;&#x95F4;&#x788E;&#x7247;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x865A;&#x62DF;&#x673A;&#x6808;</p>
+<p>&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x65F6;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x50A8;&#x7EBF;&#x7A0B;&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x88AB;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x6808;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6808;&#x5E27;&#xFF0C;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x538B;&#x6808;&#xFF0C;&#x8C03;&#x7528;&#x5B8C;&#x6210;&#x5F39;&#x6808;&#x3002;</p>
+<p><img src="../assets/jvm/stack.png" alt=""></p>
+<p>&#x6BCF;&#x4E2A;&#x6808;&#x5E27;&#x4E2D;&#x5305;&#x542B;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#xFF08;&#x65B9;&#x6CD5;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4EE5;&#x53CA;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5B58;&#x653E;&#x5728;&#x8FD9;&#x5F20;&#x8868;&#x4E2D;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4E0D;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x8BDD;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x76F8;&#x5173;&#x6307;&#x4EE4;&#x5C06;&#x5176;&#x52A0;&#x8F7D;&#x81F3;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#x4F5C;&#x4E3A;&#x64CD;&#x4F5C;&#x6570;&#x4F7F;&#x7528;&#xFF09;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x3001;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#xFF08;&#x6307;&#x5411;&#x8FD0;&#x884C;&#x65F6;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5F15;&#x7528;&#xFF09;&#x3001;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x548C;&#x9644;&#x52A0;&#x4FE1;&#x606F;&#x3002;</p>
+</li>
+<li><p>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;</p>
+<p>&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x8BB0;&#x5F55;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5230;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5;&#x4FBF;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x5230;CPU&#x65F6;&#x95F4;&#x7247;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x65F6;&#x80FD;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;
+&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x6267;&#x884C;Java&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x8BA1;&#x6570;&#x5668;&#x8BB0;&#x5F55;&#x7684;&#x662F;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x865A;&#x62DF;&#x673A;&#x5B57;&#x8282;&#x7801;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;; &#x5982;&#x679C;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x662F;Native&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x8BA1;&#x6570;&#x5668;&#x4E3A;&#x7A7A;&#x3002;</p>
+</li>
+<li><p>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;</p>
+<p>&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x662F;Native&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x5728;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E2D;&#x6267;&#x884C;&#x3002;</p>
+<p><img src="../assets/jvm/nativestack.png" alt=""></p>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; bukeyan 2020 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-02-28 18:32:49
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="classload.html" class="navigation navigation-prev " aria-label="Previous page: 类加载">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="reference.html" class="navigation navigation-next " aria-label="Next page: 强引用、软引用、弱引用与虚引用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"内存","level":"1.6.2","depth":2,"next":{"title":"强引用、软引用、弱引用与虚引用","level":"1.6.3","depth":2,"path":"jvm/reference.md","ref":"jvm/reference.md","articles":[]},"previous":{"title":"类加载","level":"1.6.1","depth":2,"path":"jvm/classload.md","ref":"jvm/classload.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-sharing","github","splitter","tbfed-pagefooter","expandable-chapters","chapter-fold","code","hide-element","pageview-count","anchor-navigation-ex","theme-comscore","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy bukeyan 2020","modify_label":"该文章修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/cwcaowei"},"livereload":{},"splitter":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"caowei","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"随笔","language":"zh-hans","output.name":"site","gitbook":"3.2.3","description":"Java相关的技术笔记"},"file":{"path":"jvm/memory.md","mtime":"2021-02-28T10:32:49.783Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-08T07:00:42.210Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
